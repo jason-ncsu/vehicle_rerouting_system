@@ -32,7 +32,7 @@ score_template <- function(prrs_limit, # time to check the status of the farms i
   
   # 1. ####
   # if vehicle does not have records, probalby is inactive
-  var_combinations$score[var_combinations$working_status == "no_records"] <- 1
+  var_combinations$score[var_combinations$working_status == "maintenance"] <- 1
   # 2. ####
   # it does not matter the other disease status if a vehicle visited an ASF positive farm
   var_combinations$score[var_combinations$asf == T & is.na(var_combinations$score)] <- 2
