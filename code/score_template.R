@@ -1,4 +1,4 @@
-score_vehicle <- function(prrs_limit, # time to check the status of the farms in the past (e.g., 364)
+score_template <- function(prrs_limit, # time to check the status of the farms in the past (e.g., 364)
                           prrs_period, # time to check vehicles visiting infected farms ini the past (e.g., 30)
                           ped_limit,
                           ped_period,
@@ -9,13 +9,13 @@ score_vehicle <- function(prrs_limit, # time to check the status of the farms in
                           export = F){
   
   # rules ####
-  working_status <- c("no_records", "busy", "free") # vehicle status
-  asf <- c(T, F) # farm asfv risk event
-  prrs  <- c(T, F) # farm prrs risk event
-  ped  <- c(T, F) # farm ped risk event
+  working_status <- c("maintenance", "busy", "free") # vehicle status
+  asf <- c(T, F) # asfv risk event
+  prrs  <- c(T, F) # prrs risk event
+  ped  <- c(T, F) # ped risk event
   clean_event  <- c(T, F) # cleaning event
   different_community  <- c(T, F) # between farm communities event
-  time_to_execute_limit <- c(T, F) # shipment_delay_event
+  time_to_execute_limit <- c(T, F) # shipment delay event
   
   # Factor combination ####
   var_combinations <- expand.grid(working_status = working_status,
